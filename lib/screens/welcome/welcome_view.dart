@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import '/components/button/_.dart';
 import '/components/main/app_scaffold.dart';
 
@@ -76,13 +77,7 @@ class WelcomeView extends GetView<WelcomeController> {
                       child: Text(
                         'Зарлаа.\nБүртгэлээ.\nАшигтай боллоо.',
                         textAlign: TextAlign.left,
-                        style: const TextStyle(
-                          fontSize: 56,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.onPrimary,
-                          height: 1.25,
-                          letterSpacing: 1,
-                        ),
+                        style: AppTextStyles.displayBold.copyWith(color: AppColors.onPrimary),
                       ),
                     ),
                   ),
@@ -97,7 +92,6 @@ class WelcomeView extends GetView<WelcomeController> {
                           label: 'Бүртгэл үүсгэх',
                           type: AppButtonType.surface,
                           size: AppButtonSize.large,
-                          borderRadius: 28,
                         ),
                         onPressed: controller.goToCreateAccount,
                       ),
@@ -107,7 +101,6 @@ class WelcomeView extends GetView<WelcomeController> {
                           label: 'Нэвтрэх',
                           type: AppButtonType.primary,
                           size: AppButtonSize.large,
-                          borderRadius: 28,
                         ),
                         onPressed: controller.goToLogin,
                       ),
