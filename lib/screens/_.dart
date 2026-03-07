@@ -1,1 +1,1 @@
-export 'init/_.dart';
+export 'welcome/_.dart';
