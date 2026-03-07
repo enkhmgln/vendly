@@ -12,6 +12,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.onChanged,
     this.onSubmitted,
     this.suffixWidget,
+    this.showError = true,
   });
 
   final AppTextFieldModel model;
@@ -20,6 +21,9 @@ class AppTextFieldWidget extends StatefulWidget {
 
   /// Optional trailing widget inside the field (e.g. success checkmark).
   final Widget? suffixWidget;
+
+  /// When false, error text is not shown (e.g. until user has attempted submit).
+  final bool showError;
 
   @override
   State<AppTextFieldWidget> createState() => _AppTextFieldWidgetState();
@@ -77,7 +81,9 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
             if (m.label != null && m.label!.isNotEmpty) ...[
               Text(
                 m.label!,
-                style: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
+                style: AppTextStyles.bodyMedium.copyWith(
+                  color: AppColors.textSecondary,
+                ),
               ),
               const SizedBox(height: 8),
             ],
@@ -102,8 +108,10 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
               ),
               decoration: InputDecoration(
                 hintText: m.hint,
-                hintStyle: AppTextStyles.bodyLarge.copyWith(color: AppColors.textSecondary),
-                errorText: errorText,
+                hintStyle: AppTextStyles.bodyLarge.copyWith(
+                  color: AppColors.textSecondary,
+                ),
+                errorText: widget.showError ? errorText : null,
                 filled: true,
                 fillColor: m.enabled
                     ? AppColors.surface
@@ -113,10 +121,6 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(_borderRadius),
                   borderSide: BorderSide.none,
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(_borderRadius),
-                  borderSide: BorderSide(color: AppColors.error),
                 ),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,

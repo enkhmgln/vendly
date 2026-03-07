@@ -75,7 +75,7 @@ class AppButtonWidget extends StatelessWidget {
       maxLines: 1,
       style: TextStyle(
         fontSize: model.size.fontSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: foreColor,
       ),
     );

@@ -9,6 +9,8 @@ abstract class AppBaseController extends GetxController {
   final isInitialLoading = false.obs;
   final isLoading = false.obs;
 
+  final showValidationErrors = false.obs;
+
   bool get isLogged => UserStoreManager.shared.hasData(kToken);
 
   Future<bool?> showSuccess({
