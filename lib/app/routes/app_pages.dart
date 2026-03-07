@@ -1,18 +1,13 @@
 import 'package:get/get.dart';
 
-// import '/core/shared/user_manager.dart';
+import '/screens/_.dart';
 
 class AppPages {
   AppPages._();
-  static const String initial = '/';
-  // static const String initial = WelcomeView.routeName;
-  // static String get initial => !UserManager.isOnboardingCompleted
-  //     ? ProfileView.routeName
-  //     : !UserManager.isLogged
-  //     ? LoginView.routeName
-  //     : HomeView.routeName;
+  static const String initial = InitialView.routeName;
 
   static final List<GetPage> routes = [
+    GetPage(name: InitialView.routeName, page: () => const InitialView()),
     // GetPage(
     //   name: WelcomeView.routeName,
     //   page: () => const WelcomeView(),
