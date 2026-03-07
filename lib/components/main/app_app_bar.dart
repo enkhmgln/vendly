@@ -26,18 +26,34 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? foregroundColor;
   final bool showLeading;
 
-  static Widget get _defaultLeading => Material(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(22),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(22),
-          onTap: () => Get.back(),
-          child: const SizedBox(
-            width: 44,
-            height: 44,
-            child: Icon(Icons.arrow_back, color: AppColors.textPrimary, size: 24),
+  static const double _leadingButtonSize = 40;
+  static const double _leadingIconSize = 22;
+  static const double _leadingLeftGap = 16;
+
+  static Widget get _defaultLeading => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(width: _leadingLeftGap),
+          Material(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(_leadingButtonSize / 2),
+            elevation: 1,
+            shadowColor: Colors.black.withValues(alpha: 0.08),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(_leadingButtonSize / 2),
+              onTap: () => Get.back(),
+              child: SizedBox(
+                width: _leadingButtonSize,
+                height: _leadingButtonSize,
+                child: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.textPrimary,
+                  size: _leadingIconSize,
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       );
 
   @override
@@ -50,7 +66,9 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final resolvedBackground = backgroundColor ?? AppColors.background;
     final resolvedForeground = foregroundColor ?? AppColors.textPrimary;
-    final resolvedLeading = showLeading ? (leading ?? _defaultLeading) : const SizedBox.shrink();
+    final resolvedLeading = showLeading
+        ? (leading ?? _defaultLeading)
+        : const SizedBox.shrink();
 
     return AppBar(
       backgroundColor: resolvedBackground,
@@ -59,7 +77,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       automaticallyImplyLeading: showLeading,
       leading: resolvedLeading,
-      leadingWidth: showLeading ? null : 0,
+      leadingWidth: showLeading ? _leadingLeftGap + _leadingButtonSize : 0,
       actions: actions,
       bottom: bottom,
       title:
@@ -67,7 +85,9 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
           (titleText != null
               ? Text(
                   titleText!,
-                  style: AppTextStyles.titleLargeBold.copyWith(color: resolvedForeground),
+                  style: AppTextStyles.titleLargeBold.copyWith(
+                    color: resolvedForeground,
+                  ),
                 )
               : null),
     );
