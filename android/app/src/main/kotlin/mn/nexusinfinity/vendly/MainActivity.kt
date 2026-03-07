@@ -1,4 +1,4 @@
-package mn.nexusinfinity.solgoi
+package mn.nexusinfinity.pos_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

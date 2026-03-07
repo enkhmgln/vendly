@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "mn.nexusinfinity.solgoi"
+    namespace = "mn.nexusinfinity.pos_mobile"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "mn.nexusinfinity.solgoi"
+        applicationId = "mn.nexusinfinity.pos_mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

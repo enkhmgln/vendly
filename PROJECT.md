@@ -1,8 +1,8 @@
-# Solgoi
+# pos_mobile
 
-**Solgoi** is a mobile-first business management platform for **micro-retailers and small shop owners**. It replaces expensive POS hardware and complex tools with a simple app that runs on your phone — **offline-friendly** and built for everyday retail.
+**pos_mobile** is a mobile-first business management platform for **micro-retailers and small shop owners**. It replaces expensive POS hardware and complex tools with a simple app that runs on your phone — **offline-friendly** and built for everyday retail.
 
-Merchants can **record sales**, **track inventory**, **manage expenses**, and **see real-time profit** from one dashboard. No technical skills or costly equipment required. As they grow, Solgoi can add receipts, analytics, and (later) **Ebarimt**-ready workflows.
+Merchants can **record sales**, **track inventory**, **manage expenses**, and **see real-time profit** from one dashboard. No technical skills or costly equipment required. As they grow, pos_mobile can add receipts, analytics, and (later) **Ebarimt**-ready workflows.
 
 _Not just a POS alternative — the operating system for modern small retail._
 
