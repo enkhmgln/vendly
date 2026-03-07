@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import 'app_dropdown_item.dart';
 import 'app_dropdown_sheet.dart';
 
@@ -33,7 +34,6 @@ class AppDropdownWidget<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -41,10 +41,7 @@ class AppDropdownWidget<T> extends StatelessWidget {
         if (label.isNotEmpty) ...[
           Text(
             label,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              fontWeight: FontWeight.w500,
-              color: AppColors.textSecondary,
-            ),
+            style: AppTextStyles.bodyMediumMedium.copyWith(color: AppColors.textSecondary),
           ),
           const SizedBox(height: 8),
         ],
@@ -68,7 +65,7 @@ class AppDropdownWidget<T> extends StatelessWidget {
                   Expanded(
                     child: Text(
                       selectedItem?.name ?? 'Select',
-                      style: theme.textTheme.bodyLarge?.copyWith(
+                      style: AppTextStyles.bodyLarge.copyWith(
                         color: selectedItem != null
                             ? AppColors.textPrimary
                             : AppColors.textSecondary,

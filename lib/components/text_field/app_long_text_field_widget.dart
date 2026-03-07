@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import 'app_text_field_model.dart';
 
 class AppLongTextFieldWidget extends StatelessWidget {
@@ -17,7 +18,6 @@ class AppLongTextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -25,10 +25,7 @@ class AppLongTextFieldWidget extends StatelessWidget {
         if (model.label != null && model.label!.isNotEmpty) ...[
           Text(
             model.label!,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              fontWeight: FontWeight.w500,
-              color: AppColors.textSecondary,
-            ),
+            style: AppTextStyles.bodyMediumMedium.copyWith(color: AppColors.textSecondary),
           ),
           const SizedBox(height: 8),
         ],
@@ -50,12 +47,10 @@ class AppLongTextFieldWidget extends StatelessWidget {
             enabled: model.enabled,
             textInputAction: TextInputAction.newline,
             onChanged: onChanged,
-            style: theme.textTheme.bodyLarge,
+            style: AppTextStyles.bodyLarge,
             decoration: InputDecoration(
               hintText: model.hint,
-              hintStyle: theme.textTheme.bodyLarge?.copyWith(
-                color: AppColors.textSecondary,
-              ),
+              hintStyle: AppTextStyles.bodyLarge.copyWith(color: AppColors.textSecondary),
               border: InputBorder.none,
               contentPadding: const EdgeInsets.all(16),
             ),

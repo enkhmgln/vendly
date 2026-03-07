@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 
 class AppBottomNavItem {
   const AppBottomNavItem({
@@ -28,7 +29,6 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(color: AppColors.surface),
       child: SafeArea(
@@ -57,7 +57,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                           const SizedBox(height: 4),
                           Text(
                             item.label,
-                            style: theme.textTheme.labelSmall?.copyWith(
+                            style: AppTextStyles.label.copyWith(
                               fontWeight: selected
                                   ? FontWeight.w600
                                   : FontWeight.w500,

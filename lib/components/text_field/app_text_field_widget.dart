@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import 'app_text_field_model.dart';
 import '/core/utils/validator.dart';
 
@@ -61,7 +62,6 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     final m = widget.model;
-    final theme = Theme.of(context);
 
     return ValueListenableBuilder<String?>(
       valueListenable: m.errorText,
@@ -77,11 +77,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
             if (m.label != null && m.label!.isNotEmpty) ...[
               Text(
                 m.label!,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondary,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 15,
-                ),
+                style: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
               ),
               const SizedBox(height: 8),
             ],
@@ -99,18 +95,14 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
               cursorColor: AppColors.primary,
               onChanged: widget.onChanged,
               onFieldSubmitted: widget.onSubmitted,
-              style: theme.textTheme.bodyLarge?.copyWith(
+              style: AppTextStyles.bodyLarge.copyWith(
                 color: m.enabled
                     ? AppColors.textPrimary
                     : AppColors.textSecondary,
-                fontSize: 16,
               ),
               decoration: InputDecoration(
                 hintText: m.hint,
-                hintStyle: TextStyle(
-                  color: AppColors.textSecondary,
-                  fontSize: 16,
-                ),
+                hintStyle: AppTextStyles.bodyLarge.copyWith(color: AppColors.textSecondary),
                 errorText: errorText,
                 filled: true,
                 fillColor: m.enabled

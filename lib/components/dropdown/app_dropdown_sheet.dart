@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import 'app_dropdown_item.dart';
 
 class AppDropdownSheet<T> extends StatelessWidget {
@@ -20,7 +21,6 @@ class AppDropdownSheet<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surface,
@@ -51,10 +51,7 @@ class AppDropdownSheet<T> extends StatelessWidget {
                     const SizedBox(height: 16),
                     Text(
                       title,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textPrimary,
-                      ),
+                      style: AppTextStyles.titleMediumBold.copyWith(color: AppColors.textPrimary),
                     ),
                     const SizedBox(height: 8),
                     Divider(
@@ -72,9 +69,7 @@ class AppDropdownSheet<T> extends StatelessWidget {
                     child: ListTile(
                       title: Text(
                         item.name,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          color: AppColors.textPrimary,
-                        ),
+                        style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textPrimary),
                       ),
                       onTap: () => Get.back(result: item),
                     ),

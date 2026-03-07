@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 
 class AppEmpty extends StatelessWidget {
   const AppEmpty({super.key, this.icon, this.text = 'No data'});
@@ -18,9 +19,7 @@ class AppEmpty extends StatelessWidget {
           Text(
             text,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: AppColors.textSecondary,
-            ),
+            style: AppTextStyles.bodyLarge.copyWith(color: AppColors.textSecondary),
           ),
         ],
       ),

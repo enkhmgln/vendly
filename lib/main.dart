@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '/app/routes/app_pages.dart';
+import '/app/theme/app_text_styles.dart';
 import '/core/constants/config.dart';
 import 'app_config.dart';
 import 'app_controller.dart';
@@ -28,7 +29,10 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
-      theme: ThemeData(fontFamily: 'GIP'),
+      theme: ThemeData(
+        fontFamily: AppTextStyles.fontFamily,
+        textTheme: AppTextStyles.textTheme,
+      ),
     );
   }
 }

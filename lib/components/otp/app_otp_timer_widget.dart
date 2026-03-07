@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import '/components/button/_.dart';
 import 'app_otp_timer_model.dart';
 
@@ -34,10 +35,7 @@ class AppOtpTimerWidget extends StatelessWidget {
         }
         return Text(
           '${model.minute}:${model.second}',
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            fontWeight: FontWeight.w600,
-            color: AppColors.primary,
-          ),
+          style: AppTextStyles.bodyMediumMedium.copyWith(color: AppColors.primary),
         );
       },
     );

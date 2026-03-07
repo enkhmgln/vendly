@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 
 abstract class AppToast {
   AppToast._();
@@ -27,16 +28,12 @@ abstract class AppToast {
       titleText: title != null && title.isNotEmpty
           ? Text(
               title,
-              style: TextStyle(
-                color: colorText,
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-              ),
+              style: AppTextStyles.bodySmallBold.copyWith(color: colorText),
             )
           : const SizedBox.shrink(),
       messageText: Text(
         message,
-        style: TextStyle(color: colorText, fontSize: 13),
+        style: AppTextStyles.caption.copyWith(color: colorText),
       ),
     );
   }

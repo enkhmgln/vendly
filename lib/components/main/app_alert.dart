@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import '/components/button/_.dart';
 
 enum AppAlertType {
@@ -38,7 +39,6 @@ class AppAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final iconColor = switch (type) {
       AppAlertType.success => AppColors.primary,
       AppAlertType.error => AppColors.error,
@@ -67,20 +67,14 @@ class AppAlert extends StatelessWidget {
             Text(
               titleText ?? type.title,
               textAlign: TextAlign.center,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: AppColors.textPrimary,
-              ),
+              style: AppTextStyles.titleMediumBold.copyWith(color: AppColors.textPrimary),
             ),
             const SizedBox(height: 12),
             Text(
               bodyText,
               textAlign: TextAlign.center,
               maxLines: 6,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: AppColors.textSecondary,
-                height: 1.4,
-              ),
+              style: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
             ),
             if (acceptText != null || cancelText != null) ...[
               const SizedBox(height: 24),

@@ -33,7 +33,7 @@ class AppButtonModel {
     this.isLoading = false,
     this.isEnabled = true,
     this.isExpanded = true,
-    this.borderRadius = 12,
+    this.borderRadius = 28,
     this.prefixIcon,
     this.suffixIcon,
     this.prefixWidget,

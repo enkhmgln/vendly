@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import '/components/button/_.dart';
 import 'app_dialog.dart';
 
@@ -32,7 +33,7 @@ class AppDialogWarning extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            style: AppTextStyles.bodyLarge.copyWith(
               fontWeight: FontWeight.w600,
               color: AppColors.textPrimary,
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 import 'app_otp_model.dart';
 
 class AppOtpWidget extends StatefulWidget {
@@ -106,9 +107,7 @@ class _AppOtpDigit extends StatelessWidget {
       child: value == null
           ? Text(
               '−',
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(color: AppColors.textSecondary),
+              style: AppTextStyles.titleMediumRegular.copyWith(color: AppColors.textSecondary),
             )
           : isSecure
           ? Container(
@@ -121,10 +120,7 @@ class _AppOtpDigit extends StatelessWidget {
             )
           : Text(
               value!,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
-              ),
+              style: AppTextStyles.titleMediumBold.copyWith(color: AppColors.textPrimary),
             ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 
 class AppChip extends StatelessWidget {
   const AppChip({
@@ -32,8 +33,7 @@ class AppChip extends StatelessWidget {
       ),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-          fontWeight: FontWeight.w500,
+        style: AppTextStyles.bodyMediumMedium.copyWith(
           color: selected ? AppColors.primary : AppColors.textPrimary,
         ),
       ),

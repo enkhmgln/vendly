@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/app/theme/app_colors.dart';
+import '/app/theme/app_text_styles.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AppAppBar({
@@ -25,9 +26,18 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? foregroundColor;
   final bool showLeading;
 
-  static Widget get _defaultLeading => IconButton(
-        icon: const Icon(Icons.chevron_left),
-        onPressed: () => Get.back(),
+  static Widget get _defaultLeading => Material(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(22),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(22),
+          onTap: () => Get.back(),
+          child: const SizedBox(
+            width: 44,
+            height: 44,
+            child: Icon(Icons.arrow_back, color: AppColors.textPrimary, size: 24),
+          ),
+        ),
       );
 
   @override
@@ -38,7 +48,6 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final resolvedBackground = backgroundColor ?? AppColors.background;
     final resolvedForeground = foregroundColor ?? AppColors.textPrimary;
     final resolvedLeading = showLeading ? (leading ?? _defaultLeading) : const SizedBox.shrink();
@@ -58,10 +67,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
           (titleText != null
               ? Text(
                   titleText!,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: resolvedForeground,
-                  ),
+                  style: AppTextStyles.titleLargeBold.copyWith(color: resolvedForeground),
                 )
               : null),
     );
