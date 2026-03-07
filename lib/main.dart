@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '/app/routes/app_pages.dart';
@@ -9,7 +10,12 @@ import 'app_controller.dart';
 void main() async {
   await AppConfig.init();
   Get.put<AppController>(AppController(), permanent: true);
-  runApp(const MainApp());
+  runApp(
+    AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -22,6 +28,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
+      theme: ThemeData(fontFamily: 'GIP'),
     );
   }
 }
