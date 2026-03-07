@@ -12,6 +12,11 @@ class AppPages {
       page: () => const WelcomeView(),
       binding: WelcomeBinding(),
     ),
+    GetPage(
+      name: CreateAccountView.routeName,
+      page: () => const CreateAccountView(),
+      binding: CreateAccountBinding(),
+    ),
     // GetPage(
     //   name: WelcomeView.routeName,
     //   page: () => const WelcomeView(),
@@ -28,11 +33,6 @@ class AppPages {
     //   binding: TellUsMoreBinding(),
     // ),
     // GetPage(
-    //   name: CreateAccountView.routeName,
-    //   page: () => const CreateAccountView(),
-    //   binding: CreateAccountBinding(),
-    // ),
-    // GetPage(
     //   name: LoginView.routeName,
     //   page: () => const LoginView(),
     //   binding: LoginBinding(),
@@ -45,11 +45,7 @@ class AppPages {
   ];
 
   static void goToCreateAccount() {
-    // if (UserManager.isOnboardingCompleted) {
-    //   Get.toNamed(CreateAccountView.routeName);
-    // } else {
-    // Get.toNamed(ProfileView.routeName);
-    // }
+    Get.toNamed(CreateAccountView.routeName);
   }
 
   static void goToLogin() {

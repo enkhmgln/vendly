@@ -10,4 +10,4 @@ const kFcmToken = 'kFcmToken';
 const kStoreUser = 'kStoreUser';
 const kStoreDevice = 'kStoreDevice';
 
-const appName = 'Solgoi';
+const appName = 'Solgoi POS';
