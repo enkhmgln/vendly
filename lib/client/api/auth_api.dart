@@ -4,28 +4,28 @@ import '/client/models/auth_model.dart';
 import '/client/response_sender.dart';
 
 class AuthApi {
-  AuthApi();
+  AuthApi._();
 
-  final ResponseSender _sender = ResponseSender(ApiClient());
+  static final _sender = ResponseSender(ApiClient());
 
-  Future<ApiResult<SignupModel>> signup({
+  static Future<ApiResult<SignupModel>> signup({
     required String email,
     required String password,
   }) async {
     return _sender.post<SignupModel>(
-      '/api/auth/signup',
-      data: {'email': email, 'password': password},
+      '/api/auth/otp',
+      data: {'email': email, 'password': password, 'purpose': 0},
       fromJson: (d) => SignupModel.fromJson(d),
     );
   }
 
-  Future<ApiResult<VerifyOtpModel>> verifyOtp({
+  static Future<ApiResult<VerifyOtpModel>> verifyOtp({
     required String email,
     required String otp,
   }) async {
     return _sender.post<VerifyOtpModel>(
-      '/api/auth/verify-otp',
-      data: {'email': email, 'otp': otp},
+      '/api/auth/otp/verify',
+      data: {'email': email, 'otp': otp, 'purpose': 0},
       fromJson: (d) => VerifyOtpModel.fromJson(d),
     );
   }

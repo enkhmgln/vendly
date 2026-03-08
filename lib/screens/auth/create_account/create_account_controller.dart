@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/client/api/auth_api.dart';
+import '/screens/_.dart';
 import '/components/main/app_base_controller.dart';
 import '/components/text_field/app_text_field_model.dart';
 import '/core/utils/validator.dart';
@@ -74,15 +75,15 @@ class CreateAccountController extends AppBaseController {
     if (!termsAgreed.value) return;
 
     isLoading.value = true;
-    final result = await AuthApi().signup(
+    final result = await AuthApi.signup(
       email: emailModel.value.trim(),
       password: passwordModel.value,
     );
     isLoading.value = false;
 
     if (result.isSuccess) {
-      toastSuccess('И-мэйл хаягаа шалгаад бүртгэлээ баталгаажуулна уу.');
-      Get.back();
+      toastSuccess(result.message);
+      Get.toNamed(VerifyOtpView.routeName, arguments: emailModel.value.trim());
     } else {
       await showError(text: result.message);
     }
