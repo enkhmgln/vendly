@@ -66,5 +66,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Solgoi POS uses location for payment compliance and delivery.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Solgoi POS uses the camera to scan barcodes and QR codes.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Solgoi POS uses the microphone for compatible card readers.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Solgoi POS uses Bluetooth to connect to card readers and accessories.</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>Solgoi POS sends notifications for account and order updates.</string>
 </dict>
 </plist>
