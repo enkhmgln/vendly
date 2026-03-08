@@ -14,7 +14,7 @@ abstract class AppToast {
     SnackPosition position = SnackPosition.TOP,
     Duration duration = const Duration(seconds: 3),
   }) {
-    final backgroundColor = isError ? AppColors.error : AppColors.primary;
+    final backgroundColor = isError ? AppColors.error : AppColors.success;
     final colorText = AppColors.background;
     Get.snackbar(
       title ?? '',
