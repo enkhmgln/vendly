@@ -31,6 +31,11 @@ class AppPages {
       binding: VerifyOtpBinding(),
     ),
     GetPage(
+      name: LoginView.routeName,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
       name: HomeView.routeName,
       page: () => const HomeView(),
       binding: HomeBinding(),
@@ -69,6 +74,6 @@ class AppPages {
   static void goToPermissions() => Get.toNamed(PermissionsView.routeName);
 
   static void goToLogin() {
-    // Get.toNamed(LoginView.routeName);
+    Get.toNamed(LoginView.routeName);
   }
 }

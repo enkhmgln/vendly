@@ -19,14 +19,25 @@ class AuthApi {
     );
   }
 
-  static Future<ApiResult<VerifyOtpModel>> verifyOtp({
+  static Future<ApiResult<AuthSessionModel>> verifyOtp({
     required String email,
     required String otp,
   }) async {
-    return _sender.post<VerifyOtpModel>(
+    return _sender.post<AuthSessionModel>(
       '/api/auth/otp/verify',
       data: {'email': email, 'otp': otp, 'purpose': 0},
-      fromJson: (d) => VerifyOtpModel.fromJson(d),
+      fromJson: (d) => AuthSessionModel.fromJson(d as Map<String, dynamic>),
+    );
+  }
+
+  static Future<ApiResult<AuthSessionModel>> login({
+    required String email,
+    required String password,
+  }) async {
+    return _sender.post<AuthSessionModel>(
+      '/api/auth/login',
+      data: {'email': email, 'password': password},
+      fromJson: (d) => AuthSessionModel.fromJson(d as Map<String, dynamic>),
     );
   }
 }
