@@ -35,6 +35,11 @@ class AppPages {
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
+    GetPage(
+      name: PermissionsView.routeName,
+      page: () => const PermissionsView(),
+      binding: PermissionsBinding(),
+    ),
     // GetPage(
     //   name: WelcomeView.routeName,
     //   page: () => const WelcomeView(),
@@ -60,6 +65,8 @@ class AppPages {
   static void goToCreateAccount() {
     Get.toNamed(CreateAccountView.routeName);
   }
+
+  static void goToPermissions() => Get.toNamed(PermissionsView.routeName);
 
   static void goToLogin() {
     // Get.toNamed(LoginView.routeName);

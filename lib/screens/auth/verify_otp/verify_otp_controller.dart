@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import '/screens/_.dart';
+import '/app/routes/app_pages.dart';
 
 import '/client/api/auth_api.dart';
-import '/components/main/app_base_controller.dart';
-import '/components/otp/_.dart';
+import '/components/_.dart';
 import '/core/constants/config.dart';
 import '/core/shared/store_manager.dart';
 
@@ -41,7 +40,7 @@ class VerifyOtpController extends AppBaseController {
       final data = result.dataOrNull!;
       await UserStoreManager.shared.write(kToken, data.accessToken);
       await UserStoreManager.shared.write(kUser, data.user.toJson());
-      Get.offAllNamed(HomeView.routeName);
+      AppPages.goToPermissions();
     } else {
       await showError(text: result.message);
     }
