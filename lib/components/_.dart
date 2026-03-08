@@ -5,4 +5,5 @@ export 'icon/_.dart';
 export 'image/_.dart';
 export 'main/_.dart';
 export 'otp/_.dart';
+export 'tabbar/_.dart';
 export 'text_field/_.dart';

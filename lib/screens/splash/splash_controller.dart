@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '/app/routes/app_pages.dart';
-import '/components/main/app_base_controller.dart';
+import '/components/_.dart';
 
 class SplashController extends AppBaseController {
   @override

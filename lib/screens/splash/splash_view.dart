@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '/app/theme/app_colors.dart';
 import '/app/theme/app_text_styles.dart';
-import '/components/main/app_scaffold.dart';
+import '/components/_.dart';
 import '/core/constants/config.dart';
 
 import 'splash_controller.dart';

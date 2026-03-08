@@ -12,5 +12,4 @@ export 'app_page_indicator.dart';
 export 'app_refresher.dart';
 export 'app_scaffold.dart';
 export 'app_sliver_header.dart';
-export 'app_tab_bar.dart';
 export 'app_toast.dart';

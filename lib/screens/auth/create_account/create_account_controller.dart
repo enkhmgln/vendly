@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 
 import '/client/api/auth_api.dart';
 import '/screens/_.dart';
-import '/components/main/app_base_controller.dart';
-import '/components/text_field/app_text_field_model.dart';
+import '/components/_.dart';
 import '/core/utils/validator.dart';
 
 class CreateAccountController extends AppBaseController {

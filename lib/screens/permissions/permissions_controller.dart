@@ -105,6 +105,6 @@ class PermissionsController extends AppBaseController {
 
   Future<void> onNext() async {
     await DeviceStoreManager.shared.write(kPermissionsCompleted, true);
-    Get.offAllNamed(HomeView.routeName);
+    Get.offAllNamed(TabBarScreen.routeName);
   }
 }

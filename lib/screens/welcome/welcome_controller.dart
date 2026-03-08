@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
 import '/app/routes/app_pages.dart';
-import '/components/main/app_base_controller.dart';
+import '/components/_.dart';
 
 class WelcomeController extends AppBaseController {
   static const String _videoAsset = 'assets/background-video.mp4';
