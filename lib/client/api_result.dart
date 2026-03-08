@@ -10,14 +10,16 @@ sealed class ApiResult<T> {
   };
 
   String get message => switch (this) {
-    ApiSuccess() => '',
+    ApiSuccess(:final message) => message,
     ApiFailure(:final message) => message,
   };
 }
 
 final class ApiSuccess<T> extends ApiResult<T> {
   final T data;
-  const ApiSuccess(this.data) : super._();
+  @override
+  final String message;
+  const ApiSuccess(this.data, [this.message = '']) : super._();
 }
 
 final class ApiFailure<T> extends ApiResult<T> {

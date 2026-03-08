@@ -101,8 +101,11 @@ class ResponseSender {
       );
     }
     final data = body['data'];
+    final message = body['message'];
+    final messageStr =
+        message is String && message.isNotEmpty ? message : '';
     try {
-      return ApiSuccess<T>(fromJson(data));
+      return ApiSuccess<T>(fromJson(data), messageStr);
     } on Object catch (e) {
       return ApiFailure<T>(
         e.toString().isNotEmpty ? e.toString() : _defaultError,
