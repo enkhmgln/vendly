@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '/components/main/app_base_controller.dart';
+import '/components/_.dart';
 import '/core/constants/config.dart';
 import '/core/shared/store_manager.dart';
 import '/screens/_.dart';
