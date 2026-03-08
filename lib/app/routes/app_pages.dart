@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 
+import '/core/constants/config.dart';
+import '/core/shared/store_manager.dart';
+import '/core/shared/user_manager.dart';
 import '/screens/_.dart';
 
 class AppPages {
@@ -7,7 +10,11 @@ class AppPages {
 
   static String get splash => SplashView.routeName;
 
-  static String get initial => WelcomeView.routeName;
+  static String get initial => !UserManager.isLogged
+      ? WelcomeView.routeName
+      : (DeviceStoreManager.shared.data<bool>(kPermissionsCompleted) ?? false)
+      ? HomeView.routeName
+      : PermissionsView.routeName;
 
   static final List<GetPage> routes = [
     GetPage(
