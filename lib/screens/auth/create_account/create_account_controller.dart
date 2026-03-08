@@ -74,16 +74,26 @@ class CreateAccountController extends AppBaseController {
     if (!runValidation()) return;
     if (!termsAgreed.value) return;
 
+    final email = emailModel.value.trim();
+    final confirmed = await showWarning(
+      text:
+          'Энэ и-мэйл рүү бүртгэлийн мэдээлэл илгээгдэнэ. Зөв эсэхийг шалгана уу.\n$email',
+      titleText: 'И-мэйл баталгаажуулах',
+      acceptText: 'Тийм',
+      cancelText: 'Засах',
+    );
+    if (confirmed != true) return;
+
     isLoading.value = true;
     final result = await AuthApi.signup(
-      email: emailModel.value.trim(),
+      email: email,
       password: passwordModel.value,
     );
     isLoading.value = false;
 
     if (result.isSuccess) {
       toastSuccess(result.message);
-      Get.toNamed(VerifyOtpView.routeName, arguments: emailModel.value.trim());
+      Get.toNamed(VerifyOtpView.routeName, arguments: email);
     } else {
       await showError(text: result.message);
     }
