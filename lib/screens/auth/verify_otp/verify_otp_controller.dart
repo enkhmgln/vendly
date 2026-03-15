@@ -40,7 +40,7 @@ class VerifyOtpController extends AppBaseController {
       final data = result.dataOrNull!;
       await UserStoreManager.shared.write(kToken, data.accessToken);
       await UserStoreManager.shared.write(kUser, data.user.toJson());
-      AppPages.goToPermissions();
+      AppPages.goToProfileSetup();
     } else {
       await showError(text: result.message);
     }

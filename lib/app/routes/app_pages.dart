@@ -53,6 +53,11 @@ class AppPages {
       binding: TabBarBinding(),
     ),
     GetPage(
+      name: ProfileSetupView.routeName,
+      page: () => const ProfileSetupView(),
+      binding: ProfileSetupBinding(),
+    ),
+    GetPage(
       name: PermissionsView.routeName,
       page: () => const PermissionsView(),
       binding: PermissionsBinding(),
@@ -82,6 +87,8 @@ class AppPages {
   static void goToCreateAccount() {
     Get.toNamed(CreateAccountView.routeName);
   }
+
+  static void goToProfileSetup() => Get.offAllNamed(ProfileSetupView.routeName);
 
   static void goToPermissions() => Get.toNamed(PermissionsView.routeName);
 
