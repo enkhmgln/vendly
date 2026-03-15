@@ -2,6 +2,7 @@ import '/client/api_client.dart';
 import '/client/api_result.dart';
 import '/client/models/auth_model.dart';
 import '/client/response_sender.dart';
+import '/core/constants/api_constants.dart';
 
 class AuthApi {
   AuthApi._();
@@ -14,7 +15,11 @@ class AuthApi {
   }) async {
     return _sender.post<SignupModel>(
       '/api/auth/otp',
-      data: {'email': email, 'password': password, 'purpose': 0},
+      data: {
+        'email': email,
+        'password': password,
+        'purpose': OtpPurpose.register,
+      },
       fromJson: (d) => SignupModel.fromJson(d),
     );
   }
@@ -25,7 +30,7 @@ class AuthApi {
   }) async {
     return _sender.post<AuthSessionModel>(
       '/api/auth/otp/verify',
-      data: {'email': email, 'otp': otp, 'purpose': 0},
+      data: {'email': email, 'otp': otp, 'purpose': OtpPurpose.register},
       fromJson: (d) => AuthSessionModel.fromJson(d as Map<String, dynamic>),
     );
   }
