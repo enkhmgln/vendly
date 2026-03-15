@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/foundation.dart';
+
+import '/client/form_data_request.dart';
 import '/core/constants/config.dart';
 import '/core/shared/user_manager.dart';
 
@@ -38,6 +40,23 @@ class ApiClient {
 
   Future<dio.Response<T>> post<T>(String path, {dynamic data}) async {
     return _dio.post<T>(path, data: data);
+  }
+
+  Future<dio.Response<T>> postFormData<T>(
+    String path, {
+    required FormDataRequest request,
+  }) async {
+    final map = <String, dynamic>{
+      for (final e in request.fields.entries) e.key: e.value,
+    };
+    for (final part in request.files) {
+      map[part.fieldName] = await dio.MultipartFile.fromFile(
+        part.filePath,
+        filename: part.effectiveFilename,
+      );
+    }
+    final formData = dio.FormData.fromMap(map);
+    return _dio.post<T>(path, data: formData);
   }
 
   Future<dio.Response<T>> patch<T>(String path, {dynamic data}) async {

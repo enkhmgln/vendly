@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart' as dio;
+
 import 'api_client.dart';
 import 'api_result.dart';
+import 'form_data_request.dart';
 
 class ResponseSender {
   ResponseSender(this._apiClient);
@@ -36,6 +38,26 @@ class ResponseSender {
   }) async {
     try {
       final response = await _apiClient.post<dynamic>(path, data: data);
+      return _parseResponse(response, fromJson);
+    } on dio.DioException catch (e) {
+      return ApiFailure<T>(_messageFromResponse(e.response?.data));
+    } on Object catch (e) {
+      return ApiFailure<T>(
+        e.toString().isNotEmpty ? e.toString() : _defaultError,
+      );
+    }
+  }
+
+  Future<ApiResult<T>> postFormData<T>(
+    String path, {
+    required FormDataRequest request,
+    required T Function(dynamic) fromJson,
+  }) async {
+    try {
+      final response = await _apiClient.postFormData<dynamic>(
+        path,
+        request: request,
+      );
       return _parseResponse(response, fromJson);
     } on dio.DioException catch (e) {
       return ApiFailure<T>(_messageFromResponse(e.response?.data));
